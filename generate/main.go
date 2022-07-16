@@ -14,12 +14,13 @@ type Cipher struct {
 
 type KeySizeError int
 
+var iniPath = "./frpc.ini"
+
 func main() {
 	RC4_Key := []byte("f379cfd7a55b621577a8389d1817a102")
 	key, _ := NewCipher(RC4_Key)
 
-	//RandomData, _ := os.ReadFile("./frpc.ini")
-	RandomData, _ := os.ReadFile("./frps.ini")
+	RandomData, _ := os.ReadFile(iniPath)
 
 	buf := make([]byte, len(RandomData))
 	for i, v := range RandomData {
